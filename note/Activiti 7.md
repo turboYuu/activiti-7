@@ -24,7 +24,7 @@ WHERE RES.ASSIGNEE_ = 'zhangsan' and D.KEY_ = 'myEvection' order by RES.ID_ asc 
 
 zhangsan(String), myEvection(String), 2147483647(Integer), 0(Integer)
 
-## 总结
+## 总结1
 
 ### 1 Activiti的表的说明
 
@@ -153,8 +153,48 @@ act_re_procdef
 
 
 
+## 总结2
 
+### 1 流程定义查询
 
-## 2 进阶
+根据流程定义key，查询流程定义信息
+
+### 2 流程删除
+
+根据deploymentId删除流程
+
+### 3 流程资源下载
+
+如果其他用户想要查看流程的资源文件，可以从数据库中把资源文件下载到本地
+
+### 4 流程历史信息查询
+
+HistoryService
+
+### 5 流程定义和流程实例
+
+一个流程定义可以对应多个流程实例
+
+如：
+
+### 6 业务标识：BusinessKey
+
+可以查询自己的业务信息
+
+```
+ProcessInstance instance = runtimeService.startProcessInstanceByKey("myEvection", "1001");
+```
+
+### 7 挂起、激活流程实例
+
+使用RunTimeService
+
+单个挂起：操作流程实例，某个流程实例挂起后，则此实例不再继续执行，如果想完成该实例，会报错
+
+全部挂起：操作流程定义，流程定义为挂起，则不允许添加新的流程实例，同时，该流程定义下的所有流程实例全部执行挂起操作
+
+RepositoryService，使用流程定义id，来执行挂起或激活操作。
+
+## 进阶
 
 ![image-20210902182738529](assest/image-20210902182738529.png)

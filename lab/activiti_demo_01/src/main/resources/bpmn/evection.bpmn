@@ -2,7 +2,11 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1630552767291" name="" targetNamespace="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema">
   <process id="myEvection" isClosed="false" isExecutable="true" name="出差申请" processType="None">
     <startEvent id="_2" name="StartEvent"/>
-    <userTask activiti:assignee="zhangsan" activiti:exclusive="true" id="_3" name="创建出差申请"/>
+    <userTask activiti:assignee="zhangsan" activiti:exclusive="true" id="_3" name="创建出差申请">
+      <extensionElements>
+        <activiti:taskListener event="all"/>
+      </extensionElements>
+    </userTask>
     <userTask activiti:assignee="jerry" activiti:exclusive="true" id="_4" name="经理审批"/>
     <userTask activiti:assignee="jack" activiti:exclusive="true" id="_5" name="总经理审批"/>
     <userTask activiti:assignee="rose" activiti:exclusive="true" id="_6" name="财务审批"/>
